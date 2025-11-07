@@ -22,15 +22,18 @@ import androidx.core.splashscreen.SplashScreen;
 
 import com.cloud.hisavana.sdk.config.AdxServerConfig;
 import com.cloud.sdk.commonutil.control.AdxPreferencesHelper;
+import com.cloud.sdk.commonutil.util.CommonLogUtil;
 import com.hisavana.common.bean.TAdErrorCode;
 import com.hisavana.common.bean.TAdRequestBody;
 import com.hisavana.common.interfacz.OnSkipListener;
 import com.hisavana.common.interfacz.TAdListener;
+import com.hisavana.common.utils.AdLogUtil;
 import com.hisavana.mediation.ad.TSplashAd;
 import com.hisavana.mediation.ad.TSplashView;
 import com.hisavana.mediation.config.TAdManager;
 import com.mediation.ssp.R;
 import com.mediation.ssp.util.DemoConstants;
+import com.transsion.ga.AthenaAnalytics;
 
 import java.lang.ref.WeakReference;
 
@@ -90,6 +93,9 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
             PrivacyAgreementDialog dialog = new PrivacyAgreementDialog(this);
             dialog.show(getSupportFragmentManager(), "privacy");
         }
+
+        // 请勿动
+        AthenaAnalytics.setTest(true);
     }
 
     // TODO Init AdManger
@@ -110,6 +116,10 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
                     }
                 }) // 可选项，该回调配置完成，最长等待15s
                 .build());
+
+        AdLogUtil.Log().i(CommonLogUtil.TAG, "athena setTest");
+        // 请勿动
+        AthenaAnalytics.setTest(true);
     }
 
     private void loadAd() {
