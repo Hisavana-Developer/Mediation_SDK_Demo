@@ -33,7 +33,7 @@ public class SplashAdActivity extends BaseActivity implements View.OnClickListen
      */
     private TSplashView adView;
     private TSplashAd tSplashAd;
-    private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_SPLASH : SLOT_ID_SPLASH;
+    private String mSlotId = DemoConstants.getSplashSlotId();
     private String sceneToken;
 
     @Override

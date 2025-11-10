@@ -201,7 +201,7 @@ public class NativeAdInListActivity extends BaseActivity {
      */
     // 广告监听器，监听广告的请求、填充、展示、点击、异常、关闭动作的回调
     static class ItemBean extends TAdListener implements Serializable {
-        private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_NATIVE : SLOT_ID_NATIVE;
+        private String mSlotId = DemoConstants.getNativeSlotId();
         /***标题*/
         private final String title;
         /***广告信息*/

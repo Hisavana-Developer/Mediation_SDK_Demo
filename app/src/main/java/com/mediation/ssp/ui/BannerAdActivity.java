@@ -38,7 +38,7 @@ public class BannerAdActivity extends BaseActivity {
     private TBannerView adview;
     private Button loadBtn;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_BANNER : SLOT_ID_BANNER;
+    private String mSlotId = DemoConstants.getBannerSlotId();
     private LinearLayout mLlBanner;
 
     @Override

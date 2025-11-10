@@ -28,6 +28,8 @@ android {
         multiDexEnabled true
 
         buildConfigField "String","sdk_version","\"${rootProject.ext.SDK_version}\""
+        // 请勿动
+        buildConfigField "boolean", "enable", "true"
     }
 
     buildTypes {

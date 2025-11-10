@@ -2,8 +2,6 @@ package com.mediation.ssp.ui;
 
 import static com.mediation.ssp.util.DemoConstants.IS_DEBUG;
 import static com.mediation.ssp.util.DemoConstants.LOG_TAG;
-import static com.mediation.ssp.util.DemoConstants.SLOT_ID_SPLASH;
-import static com.mediation.ssp.util.DemoConstants.TEST_SLOT_ID_SPLASH;
 
 import android.content.Intent;
 import android.os.Build;
@@ -31,6 +29,7 @@ import com.hisavana.common.utils.AdLogUtil;
 import com.hisavana.mediation.ad.TSplashAd;
 import com.hisavana.mediation.ad.TSplashView;
 import com.hisavana.mediation.config.TAdManager;
+import com.mediation.ssp.BuildConfig;
 import com.mediation.ssp.R;
 import com.mediation.ssp.util.DemoConstants;
 import com.transsion.ga.AthenaAnalytics;
@@ -47,7 +46,7 @@ import java.lang.ref.WeakReference;
  */
 public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgreementDialog.OnClickListener {
 
-    private String SLOT_ID = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_SPLASH : SLOT_ID_SPLASH;
+    private String SLOT_ID = DemoConstants.getSplashSlotId();
     private TSplashAd tSplashAd;
     private Handler delayHandler = new Handler(Looper.getMainLooper());
     private boolean isShowAd;
@@ -94,16 +93,15 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
             dialog.show(getSupportFragmentManager(), "privacy");
         }
 
+        AdLogUtil.Log().i(CommonLogUtil.TAG, "athena setTest = " + BuildConfig.enable);
         // 请勿动
-        AthenaAnalytics.setTest(true);
+        AthenaAnalytics.setTest(BuildConfig.enable);
     }
 
     // TODO Init AdManger
     private void initAd() {
-        // 广告SDK 设置 -->
-        AdxServerConfig.setAppModle(AdxServerConfig.TEST);
         TAdManager.init(this, new TAdManager.AdConfigBuilder()
-                .setAppId(DemoConstants.IS_DEBUG ? DemoConstants.TEST_APP_ID : DemoConstants.APP_ID) // 必须设置，请在广告平台申请
+                .setAppId(DemoConstants.getAppId()) // 必须设置，请在广告平台申请
                 .setDebug(IS_DEBUG) // 可选项，是否打印广告日志，默认为false；假如设置为true时会打印log，关键字ADSDK_M、ADSDK_N
                 .testDevice(!IS_DEBUG) // 可选项，是否请求测试广告，默认为false；假如为true时请求广告平台的测试广告，否则请求广告平台的正式广告
                 .setMuteVideo(false) // 可选项，视频类广告是否全局静音
@@ -117,9 +115,9 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
                 }) // 可选项，该回调配置完成，最长等待15s
                 .build());
 
-        AdLogUtil.Log().i(CommonLogUtil.TAG, "athena setTest");
+        AdLogUtil.Log().i(CommonLogUtil.TAG, "athena setTest = " + BuildConfig.enable);
         // 请勿动
-        AthenaAnalytics.setTest(true);
+        AthenaAnalytics.setTest(BuildConfig.enable);
     }
 
     private void loadAd() {

@@ -29,7 +29,7 @@ public class InterstitialActivity extends BaseActivity implements View.OnClickLi
     private Button loadBtn;
     private Button showButton;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_INTERSTITIAL : SLOT_ID_INTERSTITIAL;
+    private String mSlotId = DemoConstants.getInterstitialSlotId();
 
     private boolean ifSaveInstanceState = false;
     @Override

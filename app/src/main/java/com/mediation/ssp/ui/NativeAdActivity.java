@@ -54,7 +54,7 @@ public class NativeAdActivity extends BaseActivity implements View.OnClickListen
     private EditText slotidetv;
     private TAdNativeView nativeView;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_NATIVE : SLOT_ID_NATIVE;
+    private String mSlotId = DemoConstants.getNativeSlotId();
 
     private String sceneToken;
 

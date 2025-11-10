@@ -38,8 +38,7 @@ public class ADMediationRewardedAdActivity extends BaseActivity {
     private Button preload;
     private Button show;
     private CountDownTimer countDownTimer;
-    private String mSlotId = DemoConstants.IS_DEBUG ? TEST_SLOT_ID_VIDEO : SLOT_ID_VIDEO;
-
+    private String mSlotId = DemoConstants.getRewardedSlotId();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
