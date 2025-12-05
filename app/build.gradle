@@ -41,7 +41,7 @@ android {
 
         debug {
             minifyEnabled false
-            testCoverageEnabled true
+//            testCoverageEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.transsion
         }
