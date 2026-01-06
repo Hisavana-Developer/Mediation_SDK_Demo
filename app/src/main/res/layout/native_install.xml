@@ -20,6 +20,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
 
+            <!-- 适用于支持Native/Icon的广告源，具体请参考"聚合帮助" -->
             <com.hisavana.mediation.ad.TIconView
                 android:id="@+id/native_ad_icon"
                 android:layout_width="80dp"
@@ -104,6 +105,7 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!-- 适用于支持Native/Icon的广告源，具体请参考"聚合帮助" -->
         <com.hisavana.mediation.ad.TMediaView
             android:id="@+id/coverview"
             android:layout_width="match_parent"
@@ -139,7 +141,7 @@
 
     </LinearLayout>
 
-    <!-- 广告来源标示 显示 媒体自己控制显示的位置 -->
+    <!-- 广告来源标示，适用于广告源Hisavana、Facebook、Pangle、Mintegral、Bigo -->
     <com.hisavana.mediation.ad.TAdChoicesView
         android:id="@+id/adChoicesView"
         android:layout_width="wrap_content"
@@ -148,19 +150,39 @@
         android:layout_alignParentRight="true"
         android:layout_margin="5dp" />
 
+    <!-- 关闭按钮，适用于广告源Hisavana -->
     <com.hisavana.mediation.ad.TAdCloseView
         android:id="@+id/adCloseView"
-        android="@+id/adChoicesView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_toLeftOf="@+id/adChoicesView" />
 
+    <!-- 关闭按钮，如果需要所有广告源均生效，请自行将TAdCloseView更换成ImageView，并自行提供click事件-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/adCloseView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:src="@drawable/hs_ad_close1"-->
+    <!--        android:layout_toLeftOf="@+id/adChoicesView" />-->
+
+    <!-- AD标识，建议补充-->
+    <TextView
+        android:id="@+id/ad_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2.2dp"
+        android:src="AD"
+        android:textSize="11sp"
+        android:textColor="#FFFFFF"
+        android:background="#4D888888"
+        android:text="AD"/>
+
+    <!-- 广告源Hisavana 对于跳到PalmStore落地页的广告，必须添加storeMarkView（应用商店标识），否则会影响下载广告的跳转链路。 -->
     <com.hisavana.mediation.ad.TStoreMarkView
         android:id="@+id/store_mark_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="3dp" />
+        android:layout_marginLeft="30dp" />
 </RelativeLayout>
