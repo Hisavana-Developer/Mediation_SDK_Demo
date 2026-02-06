@@ -94,7 +94,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2.2dp"
-        android:src="AD"
         android:textSize="11sp"
         android:textColor="@color/ad_badge_text"
         android:background="@color/ad_badge_bg"
