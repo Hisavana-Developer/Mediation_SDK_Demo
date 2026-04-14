@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
 
-import com.cloud.hisavana.sdk.config.AdxServerConfig;
 import com.cloud.sdk.commonutil.control.AdxPreferencesHelper;
 import com.cloud.sdk.commonutil.util.CommonLogUtil;
 import com.hisavana.common.bean.TAdErrorCode;
@@ -85,7 +84,6 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
         boolean aBoolean = AdxPreferencesHelper.getInstance().getBoolean(DemoConstants.USER_AGREE_PRIVACY);
         if (aBoolean) {
             initAd();
-            loadAd();
             delayHandler.postDelayed(mRunnable,2000);
         } else {
             Log.d(LOG_TAG, "展示弹窗");
@@ -110,7 +108,7 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
                 .setCloudCompleteListener(new TAdManager.OnCloudCompleteListener() {
                     @Override
                     public void onCloudComplete(int code, String message) {
-
+                        loadAd();
                     }
                 }) // 可选项，该回调配置完成，最长等待15s
                 .build());
@@ -173,7 +171,6 @@ public class DemoSplashActivity extends AppCompatActivity implements PrivacyAgre
     @Override
     public void agree() {
         initAd();
-        loadAd();
         delayHandler.postDelayed(mRunnable,2000);
     }
 
